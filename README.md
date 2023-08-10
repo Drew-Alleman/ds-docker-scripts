@@ -10,7 +10,7 @@ wget https://raw.githubusercontent.com/Drew-Alleman/ds-docker-scripts/main/ubunt
 ```
 then to copy it
 ```
-docker cp 3c49574c148b:/DataSurgeon/target/release/ds-vVERSION-debian-aarch64 C://Users//DrewQ/Desktop/ds-vVERSION-debian-aarch64
+docker cp ID:/DataSurgeon/target/release/ds-vVERSION-debian-aarch64 C://Users//DrewQ/Desktop/ds-vVERSION-debian-aarch64
 ```
 ### Fedora 
 ```

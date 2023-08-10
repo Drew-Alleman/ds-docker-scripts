@@ -34,4 +34,3 @@ then to copy it
 ```
 docker cp ID:/DataSurgeon/target/release/ds-v${DS_VERSION}-manj C://Users//DrewQ//Desktop//ds-v${DS_VERSION}-manj
 ```
-run -t -i manjarolinux/base /bin/bash

@@ -28,7 +28,7 @@ C:\Users\Drew>docker run -t -i manjarolinux/base /bin/bash
 ```
 To download the setup script
 ```
-wget https://raw.githubusercontent.com/Drew-Alleman/ds-docker-scripts/main/manjaro.sh && chmod +x manjaro.sh && ./manjaro.sh
+curl https://raw.githubusercontent.com/Drew-Alleman/ds-docker-scripts/main/manjaro.sh > manjaro.sh && chmod +x manjaro.sh && ./manjaro.sh
 ```
 then to copy it
 ```

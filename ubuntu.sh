@@ -26,13 +26,23 @@ DS_VERSION="1.2.4"
 apt update && apt upgrade -y
 
 # Install the dependencies 
-apt install -y curl wget git pkg-config libssl-dev build-essential
+apt install -y curl wget git pkg-config libssl-dev build-essential openssl
 
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source "$HOME/.cargo/env"
-# Install DataSurgeon
+
+# Clone and setup DataSurgeon
 git clone https://github.com/Drew-Alleman/DataSurgeon
 cd DataSurgeon 
+
+# Add the required dependencies to Cargo.toml
+echo "[dependencies.openssl-sys]" >> Cargo.toml
+echo "version = \"0.9\"" >> Cargo.toml
+echo "features = [\"vendored\"]" >> Cargo.toml
+
+# Build the project
 cargo build --release
-mv /DataSurgeon/target/release/ds /DataSurgeon/target/release/ds-v${DS_VERSION}-debian-aarch64
+
+# Rename the executable
+mv target/release/ds target/release/ds-v${DS_VERSION}-debian-aarch64

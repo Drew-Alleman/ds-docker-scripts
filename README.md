@@ -20,4 +20,18 @@ then to copy it
 ```
 docker cp ID:/DataSurgeon/target/release/ds-vVERSION-fedora-x86_64 C://Users//DrewQ//Desktop//ds-vVERSION-fedora-x86_64
 ```
-
+### Manjaro 
+To start the docker
+```
+C:\Users\Drew>docker run -t -i manjarolinux/base /bin/bash
+[root]#
+```
+To download the setup script
+```
+wget https://raw.githubusercontent.com/Drew-Alleman/ds-docker-scripts/main/manjaro.sh && chmod +x fedora.sh && ./manjaro.sh
+```
+then to copy it
+```
+docker cp ID:/DataSurgeon/target/release/ds-vVERSION-fedora-x86_64 C://Users//DrewQ//Desktop//ds-vVERSION-fedora-x86_64
+```
+run -t -i manjarolinux/base /bin/bash

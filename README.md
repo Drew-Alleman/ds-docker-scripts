@@ -28,10 +28,10 @@ C:\Users\Drew>docker run -t -i manjarolinux/base /bin/bash
 ```
 To download the setup script
 ```
-wget https://raw.githubusercontent.com/Drew-Alleman/ds-docker-scripts/main/manjaro.sh && chmod +x fedora.sh && ./manjaro.sh
+wget https://raw.githubusercontent.com/Drew-Alleman/ds-docker-scripts/main/manjaro.sh && chmod +x manjaro.sh && ./manjaro.sh
 ```
 then to copy it
 ```
-docker cp ID:/DataSurgeon/target/release/ds-vVERSION-fedora-x86_64 C://Users//DrewQ//Desktop//ds-vVERSION-fedora-x86_64
+docker cp ID:/DataSurgeon/target/release/ds-v${DS_VERSION}-manj C://Users//DrewQ//Desktop//ds-v${DS_VERSION}-manj
 ```
 run -t -i manjarolinux/base /bin/bash

@@ -1,5 +1,6 @@
 #!/bin/bash
-
+cd / 
+rm -rf DataSurgeon
 : <<'END_COMMENT'
 This script performs the following actions on a Fedora Docker instance:
   1. Updates the Docker instance's system packages.
@@ -20,24 +21,33 @@ To copy the executable from this Docker container to your local machine:
   3. Use docker cp to copy the executable:
      docker cp CONTAINER_ID:/DataSurgeon/target/release/ds-v${DS_VERSION}-fedora-x86_64 /path/on/your/host/machine
 END_COMMENT
-
 DS_VERSION="1.2.4"
 
 # Update the docker instance
 dnf update -y
 
 # Install the dependencies 
-dnf install -y curl wget git pkg-config openssl-devel gcc-c++ make
+dnf install -y curl wget git pkg-config openssl-devel gcc-c++ make openssl perl-core
 
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source "$HOME/.cargo/env"
-# Install DataSurgeon
-curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Drew-Alleman/DataSurgeon/main/install/install.sh | sh
 
-# If DataSurgeon is successfully compiled and exists at the mentioned path, move and rename it. Otherwise, display a message.
-if [ -f /DataSurgeon/target/release/ds ]; then
-    mv /DataSurgeon/target/release/ds /DataSurgeon/target/release/ds-v${DS_VERSION}-fedora-x86_64
+# Clone and setup DataSurgeon
+git clone https://github.com/Drew-Alleman/DataSurgeon
+cd DataSurgeon 
+
+# Add the required dependencies to Cargo.toml
+echo "[dependencies.openssl-sys]" >> Cargo.toml
+echo "version = \"0.9\"" >> Cargo.toml
+echo "features = [\"vendored\"]" >> Cargo.toml
+
+# Build the project
+cargo build --release
+
+# Rename the executable
+if [ -f target/release/ds ]; then
+    mv target/release/ds target/release/ds-v${DS_VERSION}-fedora-x86_64
 else
-    echo "DataSurgeon binary '/DataSurgeon/target/release/ds' was not found!"
+    echo "DataSurgeon binary 'target/release/ds' was not found!"
 fi

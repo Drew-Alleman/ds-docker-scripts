@@ -32,6 +32,7 @@ apt install -y curl wget git pkg-config libssl-dev build-essential
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source "$HOME/.cargo/env"
 # Install DataSurgeon
-curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Drew-Alleman/DataSurgeon/main/install/install.sh | sh
-
+git clone https://github.com/Drew-Alleman/DataSurgeon
+cd DataSurgeon 
+cargo build --release
 mv /DataSurgeon/target/release/ds /DataSurgeon/target/release/ds-v${DS_VERSION}-debian-aarch64

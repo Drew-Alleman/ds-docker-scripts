@@ -33,7 +33,7 @@ apt install -y curl wget git pkg-config libssl-dev build-essential
 
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
+source "$HOME/.cargo/env"
 # Install DataSurgeon
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Drew-Alleman/DataSurgeon/main/install/install.sh | sh
 

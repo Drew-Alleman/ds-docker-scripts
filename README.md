@@ -2,7 +2,7 @@
 Scripts I use within a docker instance to compile DataSurgeon for the release pages.
 
 ## Docker Setup Scripts
-These are scripts I run ON a docker instance to compile the program. Run these scripts in the root directory (```cd /```).
+These are scripts I run ON a docker instance to compile the program. These scripts were designed to be run as root in the root directory. (```cd /```).
 
 ### Ubuntu
 ```

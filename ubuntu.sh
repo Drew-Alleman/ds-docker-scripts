@@ -18,7 +18,7 @@ To copy the executable from this Docker container to your local machine:
   2. Note the ID of your running container.
 
   3. Use docker cp to copy the executable:
-     docker cp CONTAINER_ID:/usr/local/bin/ds-v${DS_VERSION}-debian-aarch64 /path/on/your/host/machine
+     docker cp CONTAINER_ID:/DataSurgeon/target/release/{DS_VERSION}-debian-aarch64 /path/on/your/host/machine
 END_COMMENT
 
 #!/bin/bash

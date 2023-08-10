@@ -34,12 +34,4 @@ source "$HOME/.cargo/env"
 # Install DataSurgeon
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/Drew-Alleman/DataSurgeon/main/install/install.sh | sh
 
-# If DataSurgeon is successfully compiled and exists at the mentioned path, move and rename it. Otherwise, display a message.
-if [ -f /DataSurgeon/target/release/ds ]; then
-    mv /DataSurgeon/target/release/ds /DataSurgeon/target/release/ds-v${DS_VERSION}-debian-aarch64
-else
-    echo "DataSurgeon binary '/DataSurgeon/target/release/ds' was not found!"
-fi
-
-
-
+mv /DataSurgeon/target/release/ds /DataSurgeon/target/release/ds-v${DS_VERSION}-debian-aarch64

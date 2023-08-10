@@ -1,4 +1,6 @@
 #!/bin/bash
+cd / 
+rm -rf DataSurgeon
 
 : <<'END_COMMENT'
 This script performs the following actions on a Docker instance:
